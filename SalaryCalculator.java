@@ -18,11 +18,12 @@ public class SalaryCalculator {
 	TextField inputSalary, pension, health, lonturm, hire, saltax, salTax, expectedSal;
 	Label ExpectedSalaryLabel;
 	Label salaryLabel;
+	Label TotalTaxLabel;
 
 	public SalaryCalculator() {
 
-		Font  f3  = new Font(Font.DIALOG,  Font.BOLD, 15);
-		Font  f4  = new Font(Font.DIALOG_INPUT,  Font.BOLD|Font.ITALIC, 15);
+		Font f3 = new Font(Font.DIALOG, Font.BOLD, 15);
+		Font f4 = new Font(Font.DIALOG_INPUT, Font.BOLD | Font.ITALIC, 15);
 		frame = new JFrame("Salary Calculator");
 //		frame.setLayout(new GridBagLayout());
 		frame.setLayout(null);
@@ -47,19 +48,24 @@ public class SalaryCalculator {
 		salaryLabel.setBounds(50, 50, 170, 50);
 		salaryLabel.setFont(f3);
 		inputSalary = new TextField(20);
-		
-		
-		
+
 		// expected salary
 		ExpectedSalaryLabel = new Label("expected salary");
-		ExpectedSalaryLabel.setBounds(50, 250, 170, 50);
+		ExpectedSalaryLabel.setBounds(50, 250, 170, 30);
 		ExpectedSalaryLabel.setFont(f3);
 		inputSalary = new TextField(20);
 
+		// expected salary
+		TotalTaxLabel = new Label("total tax");
+		TotalTaxLabel.setBounds(50, 300, 170, 30);
+		TotalTaxLabel.setFont(f3);
+		inputSalary = new TextField(20);
+
 		frame.add(salaryLabel);
-		
-		//added expected salary
+
+		// added expected salary
 		frame.add(ExpectedSalaryLabel);
+		frame.add(TotalTaxLabel);
 		frame.add(inputSalary);
 		frame.add(calcBtn);
 //		, total, pension, health, lonturm, hire, saltax, salTax, expectedSal
