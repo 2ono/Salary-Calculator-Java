@@ -15,7 +15,8 @@ import java.awt.Font;
 public class SalaryCalculator {
 	JFrame frame;
 	JButton calcBtn;
-	TextField inputSalary, total, pension, health, lonturm, hire, saltax, salTax, expectedSal;
+	TextField inputSalary, pension, health, lonturm, hire, saltax, salTax, expectedSal;
+	Label ExpectedSalaryLabel;
 	Label salaryLabel;
 
 	public SalaryCalculator() {
@@ -46,8 +47,19 @@ public class SalaryCalculator {
 		salaryLabel.setBounds(50, 50, 170, 50);
 		salaryLabel.setFont(f3);
 		inputSalary = new TextField(20);
+		
+		
+		
+		// expected salary
+		ExpectedSalaryLabel = new Label("expected salary");
+		ExpectedSalaryLabel.setBounds(50, 250, 170, 50);
+		ExpectedSalaryLabel.setFont(f3);
+		inputSalary = new TextField(20);
 
 		frame.add(salaryLabel);
+		
+		//added expected salary
+		frame.add(ExpectedSalaryLabel);
 		frame.add(inputSalary);
 		frame.add(calcBtn);
 //		, total, pension, health, lonturm, hire, saltax, salTax, expectedSal
