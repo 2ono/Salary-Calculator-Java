@@ -1,5 +1,5 @@
-import java.awt.CardLayout;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Label;
 import java.awt.TextField;
 
@@ -9,10 +9,8 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 import javax.swing.JTextField;
-import java.awt.FlowLayout;
-import java.awt.Font;
 
-public class SalaryCalculator {
+public class Main {
 	JFrame frame;
 	JButton calcBtn;
 	TextField inputSalary, pension, health, lonturm, hire, saltax, salTax, expectedSal;
@@ -20,7 +18,7 @@ public class SalaryCalculator {
 	Label salaryLabel;
 	Label TotalTaxLabel;
 
-	public SalaryCalculator() {
+	public Main() {
 
 		Font f3 = new Font(Font.DIALOG, Font.BOLD, 15);
 		Font f4 = new Font(Font.DIALOG_INPUT, Font.BOLD | Font.ITALIC, 15);
@@ -79,15 +77,33 @@ public class SalaryCalculator {
 //		frame.setUndecorated(true);
 
 		/*
-		 * 예상 소득액 5,000,000 공제액 합계 789,310 국민연금 (4.5%) 216,000 건강보험 (3.545%) 170,160
-		 * 장기요양 (12.81%) 21,790 고용보험 (0.9%) 43,200 소득세 (간이세액) 307,420 지방소득세 (10%) 30,740
+		 * 예상 소득액 5,000,000 공제액 합계 789,310 
+		 * 국민연금 (4.5%) 216,000 건강보험 (3.545%) 170,160
+		 * 장기요양 (12.81%) 21,790 고용보험 (0.9%) 43,200 
+		 * 소득세 (간이세액) 307,420 지방소득세 (10%) 30,740
 		 * 월 예상 실수령액 4,210,690
 		 */
 	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		new SalaryCalculator();
+		new Main();
+		
+		
+		//Calculate Monthly Salary
+		double ExpectedSalary = 5000000;
+		
+		double PublicPensiton = ExpectedSalary * 0.045;
+		double PublicHealth = ExpectedSalary * 0.03545;
+		double ElderyCare = ExpectedSalary * 0.01281;
+		double HireInsurance = ExpectedSalary * 0.009;
+		double IncomeTax = ExpectedSalary * 0.05;
+		double RuralIncomeTax = IncomeTax * 0.1;
+		double ExpectedIncome = ExpectedSalary - (PublicPensiton + PublicHealth +
+				ElderyCare + HireInsurance + IncomeTax + RuralIncomeTax);
+		
+		
+		System.out.println(ExpectedIncome);
 	}
 
 }
